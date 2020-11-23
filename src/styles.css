@@ -1,0 +1,21 @@
+body {
+  background-color: bisque;
+}
+
+input {
+  height: 25px;
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gallery {
+  display: flex;
+}
+.stats {
+  display: flex;
+}
+
+.stats-item:not(:last-child) {
+  margin-right: 10px;
+}
