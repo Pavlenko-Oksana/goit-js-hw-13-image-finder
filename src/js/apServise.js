@@ -9,15 +9,15 @@ export default class ApiPhoto{
     return fetch(url).then(response => {
         return response.json();
      }).then(data => {
-        //  this.page += 1;
+         this.page += 1;
          return data.hits;
     })
        
   }
 
-    // resetPage() {
-    //     this.page = 1;
-    // }    
+    resetPage() {
+        this.page = 1;
+    }    
     
      get query(){
             return this.serchQuery;
