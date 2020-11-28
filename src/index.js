@@ -53,7 +53,7 @@ function clearMarcupImg() {
 }
 
 function onFetchError(img) {
-    
+  
       if ( img.status === 404 || img.error === SyntaxError || img.length === 0) {
        return alert({
             text: `Please try again!`,
