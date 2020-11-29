@@ -34,14 +34,13 @@ function onSerch(evt) {
    
     clearMarcupImg();
     apiPhoto.resetPage();
-       
+    
     apiPhoto.fetchPhotos().then(renderMarcupImg).catch(onFetchError);
 
-    
 }
 
 function renderMarcupImg(img) {
-    
+    operateObserver(img);
     const marcup = templatePhotoGallery(img);
     
     refs.imgContainer.insertAdjacentHTML('beforeend', marcup);
@@ -76,3 +75,10 @@ const options = {
 };
 const observer = new IntersectionObserver(onEntry, options);
 observer.observe(refs.sentinel);
+
+function operateObserver(img) {
+ 
+    if (img.length !== 12) {
+      observer.unobserve(refs.sentinel);  
+    }
+}
