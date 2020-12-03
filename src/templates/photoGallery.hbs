@@ -2,8 +2,10 @@
     {{#each this}}
     <li class="gallery-item">
         <div class="photo-card">
-            <img src="{{webformatURL}}" alt="{{tags}}" />
-
+            <img src="{{webformatURL}}" alt="{{tags}}" data-sourse="{{largeImageURL}}" />
+            {{!-- <div class="modal">
+                <img src="{{largeImageURL}}" width="800" height="600">
+            </div> --}}
             <div class="stats">
                 <p class="stats-item">
                     <i class="material-icons">thumb_up</i>

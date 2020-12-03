@@ -2,6 +2,8 @@ import './styles.css';
 import ApiPhoto from './js/apServise';
 import templatePhotoGallery from './templates/photoGallery.hbs';
 import getRefs from './js/get-refs';
+import * as basicLightbox from 'basiclightbox'
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/Material.css';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -17,6 +19,7 @@ defaults.delay = '1500';
 defaults.closer = false;
 defaults.sticker = false;
 
+//const basicLightbox = require('basiclightbox');
 const refs = getRefs();
 const apiPhoto = new ApiPhoto();
 
@@ -81,4 +84,24 @@ function operateObserver(img) {
     if (img.length !== 12) {
       observer.unobserve(refs.sentinel);  
     }
+} 
+
+refs.imgContainer.addEventListener('click', onClickImage);
+
+function onClickImage(evt) {
+    
+    const photo = evt.target.dataset.sourse;
+    
+    const instance = basicLightbox.create(`
+ <img src="${photo}" width="800" height="600">
+   
+`);
+    instance.show(); 
 }
+
+
+
+
+
+
+

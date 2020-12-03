@@ -3,9 +3,10 @@ export default class ApiPhoto{
         this.serchQuery = '';
         this.page = 1;
     }
-    fetchPhotos() {
+   async fetchPhotos() {
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.serchQuery}&page=${this.page}&per_page=12&key=19200060-9ee0fe46aea3b43e45ced2ab9`;
     
+     
     return fetch(url).then(response => {
         return response.json();
      }).then(data => {
