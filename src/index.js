@@ -19,7 +19,7 @@ defaults.delay = '1500';
 defaults.closer = false;
 defaults.sticker = false;
 
-//const basicLightbox = require('basiclightbox');
+
 const refs = getRefs();
 const apiPhoto = new ApiPhoto();
 
@@ -65,6 +65,20 @@ function onFetchError(img) {
     
 }
 
+refs.imgContainer.addEventListener('click', onClickImage);
+
+function onClickImage(evt) {
+    
+    const photo = evt.target.dataset.sourse;
+    
+    const instance = basicLightbox.create(`
+ <img src="${photo}" width="800" height="600">
+   
+`);
+    instance.show(); 
+}
+
+
 const onEntry = entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting && apiPhoto.query !== '') {
@@ -86,18 +100,6 @@ function operateObserver(img) {
     }
 } 
 
-refs.imgContainer.addEventListener('click', onClickImage);
-
-function onClickImage(evt) {
-    
-    const photo = evt.target.dataset.sourse;
-    
-    const instance = basicLightbox.create(`
- <img src="${photo}" width="800" height="600">
-   
-`);
-    instance.show(); 
-}
 
 
 
